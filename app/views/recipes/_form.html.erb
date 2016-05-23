@@ -1,0 +1,9 @@
+<%= simple_form_for @recipe do |f| %>
+  <%= f.input :name %>
+  <%= f.input :cuisine %>
+  <%= f.input :food_type %>
+  <%= f.input :food_preference %>
+  <%= f.input :ingredients, as: :text %>
+  <%= f.input :directions, as: :text %>
+  <%= f.submit class: 'btn btn-default' %>
+<% end %>
