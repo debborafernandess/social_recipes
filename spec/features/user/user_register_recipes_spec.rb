@@ -4,12 +4,14 @@ feature 'User register recipes' do
   scenario 'successfully' do
     visit new_recipe_path
 
-    fill_in 'recipe_name', with: 'brigadeiro'
-    fill_in 'recipe_cuisine', with: 'Brazilian'
-    fill_in 'recipe_directions', with: 'Shake, shake, shake'
+    fill_in 'recipe_name',            with: 'brigadeiro'
+    fill_in 'recipe_cuisine',         with: 'Brazilian'
+    fill_in 'recipe_food_type',       with: 'Candy'
+    select  ['Easy', 'Medium', 'Difficult'] .sample
+    select (1..50).to_a.sample
+    fill_in 'recipe_directions',      with: 'Shake, shake, shake'
     fill_in 'recipe_food_preference', with: 'A lot'
-    fill_in 'recipe_food_type', with: 'Candy'
-    fill_in 'recipe_ingredients', with: 'Chocolate, milk'
+    fill_in 'recipe_ingredients',     with: 'Chocolate, milk'
 
     click_on 'Create Recipe'
 

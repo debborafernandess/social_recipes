@@ -1,9 +1,30 @@
 <%= simple_form_for @recipe do |f| %>
-  <%= f.input :name %>
-  <%= f.input :cuisine %>
-  <%= f.input :food_type %>
-  <%= f.input :food_preference %>
-  <%= f.input :ingredients, as: :text %>
+  <div class='col-md-9'>
+    <%= f.input :name %>
+  </div>
+  <div class='col-md-3'>
+    <%= f.input :level, collection: ['Easy', 'Medium', 'Difficult'] %>
+  </div>
+  <div class='col-md-3'>
+    <%= f.input :cuisine %>
+  </div>
+  <div class='col-md-3'>
+    <%= f.input :food_type %>
+  </div>
+  <div class='col-md-3'>
+    <%= f.input :food_preference %>
+  </div>
+  <div class='col-md-3'>
+    <%= f.input :serves, collection: 1..50 %>
+  </div>
+  <div class='col-md-6'>
+    <%= f.input :ingredients, as: :text %>
+  </div>
+  <div class='col-md-6'>
   <%= f.input :directions, as: :text %>
-  <%= f.submit class: 'btn btn-default' %>
+  </div>
+  <div class='col-md-12'>
+    <%= link_to 'Voltar', recipes_path, class: 'btn btn-default' %>
+    <%= f.submit class: 'btn btn-default' %>
+  </div>
 <% end %>
