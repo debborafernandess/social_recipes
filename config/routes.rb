@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   resources :recipes, only: [:index, :new, :create, :show, :edit, :update]
   resources :cuisines, only: [:index, :new, :create, :show]
+  resources :dishes, only: [:index, :new, :create, :show, :edit, :update]
 end

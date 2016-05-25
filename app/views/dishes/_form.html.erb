@@ -1,0 +1,9 @@
+<%= simple_form_for @dish do |f| %>
+  <div class='col-md-6'>
+    <%= f.input :description, label: 'Tipo de Prato', placeholder: 'Cadé da manhã' %>
+  </div>
+  <div class='col-md-12'>
+    <%= link_to 'Voltar', dishes_path, class: 'btn btn-default' %>
+    <%= f.submit "#{action} prato", class: 'btn btn-default' %>
+  </div>
+<% end %>
