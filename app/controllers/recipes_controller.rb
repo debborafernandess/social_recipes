@@ -1,5 +1,4 @@
 class RecipesController < ApplicationController
-  respond_to :html
 
   before_action :set_recipe, only: [:show]
 

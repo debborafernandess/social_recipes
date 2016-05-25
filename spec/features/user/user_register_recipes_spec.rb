@@ -7,7 +7,7 @@ feature 'User register recipes' do
     fill_in 'recipe_name',            with: 'brigadeiro'
     fill_in 'recipe_cuisine',         with: 'Brazilian'
     fill_in 'recipe_food_type',       with: 'Candy'
-    select  ['Fácil', 'Médio', 'Difícil'].sample
+    select  %w(Fácil Médio Difícil).sample
     within('#recipe_serves') do
       select (1..50).to_a.sample
     end

@@ -9,8 +9,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to '<3 Receitas', root_path, class: 'navbar-brand' %>
+        <p class="navbar-text navbar-right">Easy to do, easy to share</p>
+      </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Nova Receita', new_recipe_path %></li>
+          <li><%= link_to 'Cozinhas', cuisines_path %></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <div class="container-fluid">
-    <h1>Social Recipes <small>Easy to do, easy to share</small></h1>
     <%= yield %>
   </div>
 </body>
