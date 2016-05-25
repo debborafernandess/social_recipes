@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe)
           .permit(:name, :cuisine, :food_type, :food_preference, :serves,
-                  :cook_time, :level, :ingredients, :directions)
+                  :cook_time, :level, :ingredients, :directions, :photo)
   end
 
   def set_recipe

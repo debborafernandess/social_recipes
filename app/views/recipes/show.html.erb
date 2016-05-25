@@ -1,6 +1,47 @@
 <div class='recipe'>
   <h1><%= @recipe.name.capitalize %></h1>
-  <p><%= @recipe.level %></p>
+
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table">
+        <tr>
+          <td>Preferência</td>
+          <td><%= @recipe.food_preference %></td>
+        </tr>
+        <tr>
+          <td>Cozinha</td>
+          <td><%= @recipe.cuisine %></td>
+        </tr>
+        <tr>
+          <td>Serve</td>
+          <td><%= @recipe.serves %> pessoas</td>
+        </tr>
+        <tr>
+          <td>Tempo de Preparo</td>
+          <td><%= @recipe.cook_time %></td>
+        </tr>
+        <tr>
+          <td>Dificuldade</td>
+          <td><%= @recipe.level %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-6">
+      <%= cl_image_tag(@recipe.photo.url, alt: @recipe.name) %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <p>Ingredientes</p>
+      <p><%= @recipe.ingredients %></p>
+    </div>
+    <div class="col-md-6">
+      <p>Preparo</p>
+      <p><%= @recipe.directions %></p>
+    </div>
+  </div>
 </div>
+
 
 <%= link_to 'Voltar', recipes_path, class: 'btn btn-default' %>

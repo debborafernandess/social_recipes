@@ -7,8 +7,10 @@ feature 'User register recipes' do
     fill_in 'recipe_name',            with: 'brigadeiro'
     fill_in 'recipe_cuisine',         with: 'Brazilian'
     fill_in 'recipe_food_type',       with: 'Candy'
-    select  ['Easy', 'Medium', 'Difficult'] .sample
-    select (1..50).to_a.sample
+    select  ['Fácil', 'Médio', 'Difícil'].sample
+    within('#recipe_serves') do
+      select (1..50).to_a.sample
+    end
     fill_in 'recipe_directions',      with: 'Shake, shake, shake'
     fill_in 'recipe_food_preference', with: 'A lot'
     fill_in 'recipe_ingredients',     with: 'Chocolate, milk'

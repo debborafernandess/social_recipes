@@ -1,27 +1,34 @@
 <%= simple_form_for @recipe do |f| %>
-  <div class='col-md-9'>
-    <%= f.input :name %>
+  <div class='col-md-6'>
+    <%= f.input :name, label: 'Título' %>
   </div>
   <div class='col-md-3'>
-    <%= f.input :level, collection: ['Easy', 'Medium', 'Difficult'] %>
+    <%= f.input :level, collection: ['Fácil', 'Médio', 'Difícil'], label: 'Dificuldade' %>
   </div>
   <div class='col-md-3'>
-    <%= f.input :cuisine %>
+    <%= f.input :cook_time, collection: 1..180, label: 'Preparo (em minutos)' %>
   </div>
   <div class='col-md-3'>
-    <%= f.input :food_type %>
+    <%= f.input :cuisine, label: 'Cozinha' %>
   </div>
   <div class='col-md-3'>
-    <%= f.input :food_preference %>
+    <%= f.input :food_type, label: 'Tipo' %>
   </div>
   <div class='col-md-3'>
-    <%= f.input :serves, collection: 1..50 %>
+    <%= f.input :food_preference, label: 'Preferência' %>
+  </div>
+  <div class='col-md-3'>
+    <%= f.input :serves, collection: 1..50, label: 'Serve (nº pessoas)' %>
   </div>
   <div class='col-md-6'>
-    <%= f.input :ingredients, as: :text %>
+    <%= f.input :ingredients, as: :text, label: 'Ingredientes' %>
   </div>
   <div class='col-md-6'>
-  <%= f.input :directions, as: :text %>
+  <%= f.input :directions, as: :text, label: 'Modo de Preparo' %>
+  </div>
+  <div class='col-md-6'>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.input :photo, as: :file, label: 'Foto' %>
   </div>
   <div class='col-md-12'>
     <%= link_to 'Voltar', recipes_path, class: 'btn btn-default' %>
