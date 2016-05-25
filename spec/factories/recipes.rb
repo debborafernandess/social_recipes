@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :recipe do
     name Faker::Name.title
-    cuisine Faker::Name.name
+    cuisine
     food_type Faker::Name.name
     food_preference Faker::Name.name
     serves 1

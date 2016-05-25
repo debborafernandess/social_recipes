@@ -12,7 +12,7 @@ feature 'User access recipes' do
         expect(page).to have_link(recipe.name)
         expect(page).to have_content(recipe.food_preference)
         expect(page).to have_content(recipe.food_type)
-        expect(page).to have_content(recipe.cuisine)
+        expect(page).to have_content(recipe.cuisine.description)
         expect(page).to have_content(recipe.level)
       end
     end
@@ -25,7 +25,7 @@ feature 'User access recipes' do
     within('.recipe') do
       expect(page).to have_css('h1', text: recipe.name.capitalize)
       expect(page).to have_css('td', text: recipe.food_preference)
-      expect(page).to have_css('td', text: recipe.cuisine)
+      expect(page).to have_css('td', text: recipe.cuisine.description)
       expect(page).to have_css('td', text: "#{recipe.serves} pessoas")
       expect(page).to have_css('td', text: recipe.cook_time)
       expect(page).to have_css('td', text: recipe.level)
@@ -33,6 +33,7 @@ feature 'User access recipes' do
       expect(page).to have_css('p',  text: recipe.directions)
     end
 
+    expect(page).to have_link('Editar')
     expect(page).to have_link 'Voltar'
   end
 end

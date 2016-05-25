@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update]
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.includes(:cuisine).all
   end
 
   def new
@@ -28,7 +28,7 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe)
-          .permit(:name, :cuisine, :food_type, :food_preference, :serves,
+          .permit(:name, :cuisine_id, :food_type, :food_preference, :serves,
                   :cook_time, :level, :ingredients, :directions, :photo)
   end
 

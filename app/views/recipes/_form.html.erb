@@ -9,7 +9,7 @@
     <%= f.input :cook_time, collection: 1..180, label: 'Preparo (em minutos)' %>
   </div>
   <div class='col-md-3'>
-    <%= f.input :cuisine, label: 'Cozinha' %>
+    <%= f.association :cuisine, label_method: :description, value_method: :id, include_blank: false, label: 'Cozinha' %>
   </div>
   <div class='col-md-3'>
     <%= f.input :food_type, label: 'Tipo' %>

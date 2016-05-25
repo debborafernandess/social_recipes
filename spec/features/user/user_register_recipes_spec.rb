@@ -2,10 +2,11 @@ require 'rails_helper'
 
 feature 'User register recipes' do
   scenario 'create successfully' do
+    cuisine = create(:cuisine)
     visit new_recipe_path
 
     fill_in 'recipe_name',            with: 'brigadeiro'
-    fill_in 'recipe_cuisine',         with: 'Brazilian'
+    within('#recipe_cuisine_id') { select cuisine.description }
     fill_in 'recipe_food_type',       with: 'Candy'
     select  %w(Fácil Médio Difícil).sample
     within('#recipe_serves') do

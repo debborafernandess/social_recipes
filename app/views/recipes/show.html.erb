@@ -10,7 +10,7 @@
         </tr>
         <tr>
           <td>Cozinha</td>
-          <td><%= @recipe.cuisine %></td>
+          <td><%= @recipe.cuisine.description %></td>
         </tr>
         <tr>
           <td>Serve</td>
@@ -45,3 +45,4 @@
 
 
 <%= link_to 'Voltar', recipes_path, class: 'btn btn-default' %>
+<%= link_to 'Editar', edit_recipe_path(@recipe), class: 'btn btn-default' %>
