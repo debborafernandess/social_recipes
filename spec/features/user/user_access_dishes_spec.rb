@@ -7,7 +7,7 @@ feature 'User access dishes' do
 
     within('.dishes') do
       dishes.each do |dish|
-        expect(page).to have_css('td', text: dish.description)
+        expect(page).to have_link(dish.description)
       end
     end
   end

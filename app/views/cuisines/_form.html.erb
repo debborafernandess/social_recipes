@@ -3,7 +3,7 @@
     <%= f.input :description, label: 'Cozinha', placeholder: 'Italiana' %>
   </div>
   <div class='col-md-12'>
-    <%= link_to 'Voltar', recipes_path, class: 'btn btn-default' %>
-    <%= f.submit 'Criar cozinha', class: 'btn btn-default' %>
+    <%= link_to 'Voltar', cuisines_path, class: 'btn btn-default' %>
+    <%= f.submit "#{action} cozinha", class: 'btn btn-default' %>
   </div>
 <% end %>

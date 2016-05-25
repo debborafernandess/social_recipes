@@ -1,8 +1,8 @@
 class CuisinesController < ApplicationController
-  before_action :set_cuisine, only: [:show]
+  before_action :set_cuisine, only: [:show, :edit, :update]
 
   def index
-    @cuisines = Cuisine.all
+    @cuisines = Cuisine.order(:description)
   end
 
   def new
@@ -15,6 +15,13 @@ class CuisinesController < ApplicationController
   end
 
   def show; end
+
+  def edit; end
+
+  def update
+    @cuisine.update(cuisine_params)
+    respond_with @cuisine
+  end
 
   private
 
