@@ -9,5 +9,8 @@ FactoryGirl.define do
     level 'Fácil'
     ingredients Faker::Lorem.sentence(2, true)
     directions Faker::Lorem.paragraph(4, true, 4)
+    after :create do |recipe|
+      recipe.update_column(:photo, File.join(Rails.root, 'spec', 'support', 'cooking.jpg'))
+    end
   end
 end

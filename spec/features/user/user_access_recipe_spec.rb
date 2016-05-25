@@ -5,10 +5,14 @@ feature 'User access recipes' do
     recipes = create_list(:recipe, 2)
     visit recipes_path
 
+    expect(page).to have_css('h1', text: 'Últimas receitas')
+
     within('.recipes') do
       recipes.each do |recipe|
         expect(page).to have_link(recipe.name)
-        expect(page).to have_content(recipe.serves)
+        expect(page).to have_content(recipe.food_preference)
+        expect(page).to have_content(recipe.food_type)
+        expect(page).to have_content(recipe.cuisine)
         expect(page).to have_content(recipe.level)
       end
     end

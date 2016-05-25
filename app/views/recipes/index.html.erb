@@ -1,12 +1,5 @@
-<%= link_to 'New recipe', new_recipe_path %>
+<h1>Últimas receitas</h1>
 
 <div class='recipes'>
-  <table class="table table-striped">
-    <tr>
-      <th>Receita</th>
-      <th>Porções </th>
-      <th>Dificuldade</th>
-    </tr>
-    <%= render @recipes %>
-  </table>
+  <%= render @recipes %>
 </div>
