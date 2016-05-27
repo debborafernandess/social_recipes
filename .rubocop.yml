@@ -2,6 +2,9 @@ Documentation:
   Enabled: false
 Style/MultilineOperationIndentation:
   EnforcedStyle: indented
+Style/ExtraSpacing:
+  Description: 'Do not use unnecessary spacing.'
+  Enabled: false
 Rails:
   Enabled: true
 AllCops:
@@ -16,3 +19,4 @@ AllCops:
     - 'spec/spec_helper.rb'
     - 'spec/rails_helper.rb'
     - !ruby/regexp /old_and_unused\.rb$/
+

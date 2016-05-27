@@ -1,5 +1,4 @@
 class RecipesController < ApplicationController
-
   before_action :set_recipe, only: [:show, :edit, :update]
 
   def index
@@ -28,7 +27,7 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe)
-          .permit(:name, :cuisine_id, :food_type, :food_preference, :serves,
+          .permit(:name, :cuisine_id, :dish_id, :food_preference, :serves,
                   :cook_time, :level, :ingredients, :directions, :photo)
   end
 

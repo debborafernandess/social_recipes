@@ -11,7 +11,7 @@ feature 'User access recipes' do
       recipes.each do |recipe|
         expect(page).to have_link(recipe.name)
         expect(page).to have_content(recipe.food_preference)
-        expect(page).to have_content(recipe.food_type)
+        expect(page).to have_content(recipe.dish.description)
         expect(page).to have_content(recipe.cuisine.description)
         expect(page).to have_content(recipe.level)
       end

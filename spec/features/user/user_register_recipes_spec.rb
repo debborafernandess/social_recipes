@@ -3,15 +3,14 @@ require 'rails_helper'
 feature 'User register recipes' do
   scenario 'create successfully' do
     cuisine = create(:cuisine)
+    dish = create(:dish)
     visit new_recipe_path
 
     fill_in 'recipe_name',            with: 'brigadeiro'
     within('#recipe_cuisine_id') { select cuisine.description }
-    fill_in 'recipe_food_type',       with: 'Candy'
+    within('#recipe_dish_id')    { select dish.description }
+    within('#recipe_serves')     { select (1..50).to_a.sample }
     select  %w(Fácil Médio Difícil).sample
-    within('#recipe_serves') do
-      select (1..50).to_a.sample
-    end
     fill_in 'recipe_directions',      with: 'Shake, shake, shake'
     fill_in 'recipe_food_preference', with: 'A lot'
     fill_in 'recipe_ingredients',     with: 'Chocolate, milk'
@@ -29,9 +28,9 @@ feature 'User register recipes' do
 
     within('.recipe_name') { expect(page).to have_content("can't be blank") }
     within('.recipe_cuisine') { expect(page).to have_content("can't be blank") }
+    within('.recipe_dish') { expect(page).to have_content("can't be blank") }
     within('.recipe_directions') { expect(page).to have_content("can't be blank") }
     within('.recipe_food_preference') { expect(page).to have_content("can't be blank") }
-    within('.recipe_food_type') { expect(page).to have_content("can't be blank") }
     within('.recipe_ingredients') { expect(page).to have_content("can't be blank") }
   end
 

@@ -13,13 +13,17 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <%= link_to '<3 Receitas', root_path, class: 'navbar-brand' %>
-        <p class='navbar-text navbar-right'>Easy to do, easy to share! </p>
       </div>
       <div class="collapse navbar-collapse" id="navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><%= link_to 'Receitas', new_recipe_path %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Receitas <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'Nova Receita', new_recipe_path %></li>
+            </ul>
+          </li>
           <li><%= link_to 'Cozinhas', cuisines_path %></li>
-          <li><%= link_to 'Pratos', dishes_path %></li>
+          <li><%= link_to 'Tipos de Prato', dishes_path %></li>
         </ul>
       </div>
     </div>
