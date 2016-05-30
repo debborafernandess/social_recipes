@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 feature 'Visitor visits home' do
   scenario 'and see recipes' do
     recipes = create_list(:recipe, 3)

@@ -15,7 +15,7 @@
     <%= f.association :dish, label_method: :description, value_method: :id, include_blank: false, label: 'Tipo' %>
   </div>
   <div class='col-md-3'>
-    <%= f.input :food_preference, label: 'Preferência' %>
+    <%= f.association :preference, label_method: :description, value_method: :id, include_blank: false, label: 'Preferência de comida' %>
   </div>
   <div class='col-md-3'>
     <%= f.input :serves, collection: 1..50, label: 'Serve (nº pessoas)' %>

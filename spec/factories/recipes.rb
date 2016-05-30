@@ -3,7 +3,7 @@ FactoryGirl.define do
     name Faker::Name.title
     cuisine
     dish
-    food_preference Faker::Name.name
+    preference
     serves 1
     cook_time 1
     level 'Fácil'
