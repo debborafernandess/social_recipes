@@ -41,8 +41,8 @@ feature 'User register recipes' do
      '.recipe_dish',
      '.recipe_directions',
      '.recipe_preference',
-     '.recipe_ingredients'].each do |class_name|
-      within(class_name) do
+     '.recipe_ingredients'].each do |field|
+      within(field) do
         expect(page).to have_content("can't be blank")
       end
     end
