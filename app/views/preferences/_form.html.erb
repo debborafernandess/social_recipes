@@ -1,0 +1,9 @@
+<%= simple_form_for @preference do |f| %>
+  <div class='col-md-6'>
+    <%= f.input :description, label: 'Preferência de comida', placeholder: 'Vegana' %>
+  </div>
+  <div class='col-md-12'>
+    <%= link_to 'Voltar', preferences_path, class: 'btn btn-default' %>
+    <%= f.submit "#{action} cozinha", class: 'btn btn-default' %>
+  </div>
+<% end %>

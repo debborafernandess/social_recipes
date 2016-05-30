@@ -4,12 +4,14 @@ feature 'User register recipes' do
   scenario 'create successfully' do
     cuisine = create(:cuisine)
     dish = create(:dish)
+    portion = (1..50).to_a
+
     visit new_recipe_path
 
     fill_in 'recipe_name',            with: 'brigadeiro'
     within('#recipe_cuisine_id') { select cuisine.description }
     within('#recipe_dish_id')    { select dish.description }
-    within('#recipe_serves')     { select (1..50).to_a.sample }
+    within('#recipe_serves')     { select portion.sample }
     select  %w(Fácil Médio Difícil).sample
     fill_in 'recipe_directions',      with: 'Shake, shake, shake'
     fill_in 'recipe_food_preference', with: 'A lot'
@@ -26,12 +28,16 @@ feature 'User register recipes' do
     visit new_recipe_path
     click_on 'Criar receita'
 
-    within('.recipe_name') { expect(page).to have_content("can't be blank") }
-    within('.recipe_cuisine') { expect(page).to have_content("can't be blank") }
-    within('.recipe_dish') { expect(page).to have_content("can't be blank") }
-    within('.recipe_directions') { expect(page).to have_content("can't be blank") }
-    within('.recipe_food_preference') { expect(page).to have_content("can't be blank") }
-    within('.recipe_ingredients') { expect(page).to have_content("can't be blank") }
+    ['.recipe_name',
+     '.recipe_cuisine',
+     '.recipe_dish',
+     '.recipe_directions',
+     '.recipe_food_preference',
+     '.recipe_ingredients'].each do |class_name|
+      within(class_name) do
+        expect(page).to have_content("can't be blank")
+      end
+    end
   end
 
   scenario 'update successfully' do

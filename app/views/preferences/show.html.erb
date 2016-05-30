@@ -1,0 +1,12 @@
+<div class='preference'>
+  <h1>Preferência de comida</h1>
+
+  <div class="row">
+    <div class="col-md-6">
+      <p><%= @preference.description %></p>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Editar', edit_preference_path(@preference), class: 'btn btn-default' %>
+<%= link_to 'Voltar', preferences_path, class: 'btn btn-default' %>

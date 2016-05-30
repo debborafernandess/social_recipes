@@ -17,7 +17,9 @@ feature 'User register cuisines' do
     visit new_cuisine_path
     click_on 'Criar cozinha'
 
-    within('.cuisine_description') { expect(page).to have_content("can't be blank") }
+    within('.cuisine_description') do
+      expect(page).to have_content("can't be blank")
+    end
   end
 
   scenario 'update successfully' do
@@ -39,6 +41,8 @@ feature 'User register cuisines' do
     fill_in 'cuisine_description', with: ''
     click_on 'Atualizar cozinha'
 
-    within('.cuisine_description') { expect(page).to have_content("can't be blank") }
+    within('.cuisine_description') do
+      expect(page).to have_content("can't be blank")
+    end
   end
 end

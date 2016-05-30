@@ -17,7 +17,9 @@ feature 'User register dishes' do
     visit new_dish_path
     click_on 'Criar prato'
 
-    within('.dish_description') { expect(page).to have_content("can't be blank") }
+    within('.dish_description') do
+      expect(page).to have_content("can't be blank")
+    end
   end
 
   scenario 'update successfully' do
@@ -39,6 +41,8 @@ feature 'User register dishes' do
     fill_in 'dish_description', with: ''
     click_on 'Atualizar prato'
 
-    within('.dish_description') { expect(page).to have_content("can't be blank") }
+    within('.dish_description') do
+      expect(page).to have_content("can't be blank")
+    end
   end
 end
