@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.6'
-gem 'pg', '~> 0.15'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -15,6 +14,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'devise'
 
 # gem 'therubyracer', platforms: :ruby
 # gem 'bcrypt', '~> 3.1.7'
@@ -22,6 +22,7 @@ gem 'cloudinary'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'byebug'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
@@ -36,3 +37,4 @@ group :development do
   gem 'rubocop', require: false
 end
 
+gem 'pg', '~> 0.15', group: :production
