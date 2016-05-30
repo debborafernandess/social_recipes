@@ -19,7 +19,8 @@ feature 'User access recipes' do
   end
 
   scenario 'view details' do
-    recipe = create(:recipe)
+    user = create(:user)
+    recipe = create(:recipe, user: user)
     visit recipe_path(recipe)
 
     within('.recipe') do

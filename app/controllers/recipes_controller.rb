@@ -1,16 +1,18 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :set_recipe, only: [:show, :edit, :update]
+  before_action :verify_owner, only: [:edit, :update]
 
   def index
     @recipes = Recipe.includes(:cuisine).all
   end
 
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.build
   end
 
   def create
-    @recipe = Recipe.create(recipe_params)
+    @recipe = current_user.recipes.create(recipe_params)
     respond_with @recipe
   end
 
@@ -33,5 +35,9 @@ class RecipesController < ApplicationController
 
   def set_recipe
     @recipe = Recipe.find(params[:id])
+  end
+
+  def verify_owner
+    redirect_to root_path unless current_user.eql?(@recipe.user)
   end
 end
